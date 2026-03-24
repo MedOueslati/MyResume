@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-primary: 'Bricolage Grotesque', sans-serif;
+  --color-primary: #7DAAC7;
+  --color-secondary: #7daac726
+}
+
+@layer base {
+  * {
+    font-family: var(--font-primary);
+  }
+}
+
+
+@keyframes smooth-infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.333%)); /* Move by one third of the total width */
+  }
+}
+
+
+
+@layer utilities {
+  .animate-smooth-infinite-scroll {
+    animation: smooth-infinite-scroll 40s linear infinite;
+  }
+  
+  /* Pause on hover for better UX */
+  .animate-smooth-infinite-scroll:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Responsive animation speeds */
+  @media (max-width: 768px) {
+    .animate-smooth-infinite-scroll {
+      animation-duration: 40s;
+    }
+  }
+}
